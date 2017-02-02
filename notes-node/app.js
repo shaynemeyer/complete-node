@@ -15,19 +15,28 @@ if (command === 'add'){
 
   if (note){
     console.log('Note created');
-    console.log('--');
-    console.log(`Title: ${note.title}`);
-    console.log(`Body: ${note.body}`);
+    notes.logNote(note);
   } else {
     console.log('That title already exists, please use a unique title!');
   }
 
 } else if (command === 'list') {
-  notes.getAll();
+  let allNotes = notes.getAll();
+  console.log(`Printing ${allNotes.length} note(s).`);
+  allNotes.forEach((note) => notes.logNote(note));
+
 } else if (command === 'read') {
-  notes.readNote(argv.title);
+  let note = notes.getNote(argv.title);
+
+  if(note){
+    console.log('Note found');
+    notes.logNote(note);
+  } else {
+    console.log(`Not able to find a note with the title: ${argv.title}`)
+  }
+
 } else if (command === 'remove') {
-  let noteRemoved = notes.removeNote(argv.title);
+  let noteRemoved = notes.getNote(argv.title);
   let message = noteRemoved ? 'Note was removed': 'Note not found';
   console.log(message);
 } else {
