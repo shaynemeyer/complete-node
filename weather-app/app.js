@@ -24,9 +24,15 @@
 
 const request = require('request');
 const config = require('./config');
+const url = `https://api.darksky.net/forecast/${config.darkskyAPIKey}/37.8267,-122.4233`;
+console.log(url);
 request({
-  url: `https://api.darksky.net/forecast/${config.darkskyAPIKey}/37.8267,-122.4233`,
+  url: url,
   json: true
 }, (error, response, body) => {
-  console.log(body);
+  if (!error && response.statusCode === 200) {
+    console.log(body.currently.temperature);
+  } else {
+    console.log('Unable to fetch weather');
+  }
 });
