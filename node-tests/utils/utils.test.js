@@ -17,5 +17,30 @@ it('should square a number', () => {
   if(res !== 100) {
     throw new Error('Value not correct');
   }
+});
 
+// it('should expect some values', () => {
+  // expect(12).toNotBe(12);
+  // expect({name: 'Shayne'}).toBe({name: 'Shayne'});
+  // expect([2,3,4]).toExclude(1);
+  // expect({
+  //   name: 'Shayne',
+  //   age: 25,
+  //   location: 'Lake Stevens'
+  // }).toExclude({
+  //   age: 23
+  // });
+// });
+
+// Should verify first and last names are set
+it('should verify first and last names are set', () => {
+  // assert firstName and lastName with proper values
+  let user = {
+    firstName: 'Shayne',
+    lastName: 'Meyer'
+  };
+
+  const fullName = `${user.firstName} ${user.lastName}`;
+
+  expect(utils.setName({}, fullName)).toEqual(user);
 });
