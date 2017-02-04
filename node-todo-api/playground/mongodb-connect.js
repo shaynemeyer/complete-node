@@ -26,7 +26,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (error, db) => {
       return console.log('Unable to insert user');
     }
 
-    console.log(JSON.stringify(result.ops, undefined, 2));
+    console.log(JSON.stringify(result.ops[0]._id.getTimestamp(), undefined, 2));
   });
 
   db.close();
