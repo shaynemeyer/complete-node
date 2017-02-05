@@ -20,13 +20,32 @@ var Todo = mongoose.model('Todo', {
   }
 });
 
-var newTodo = new Todo({
-  text: 'Buy groceries',
-  completed: false
+// var newTodo = new Todo({
+//   text: 'Buy groceries',
+//   completed: false
+// });
+//
+// newTodo.save().then((doc) => {
+//   console.log('saved todo', doc);
+// }, (e) => {
+//   console.log('Unable to save todo');
+// });
+
+var User = mongoose.model('User', {
+  email: {
+    type: String,
+    required: true,
+    trim: true,
+    minLength: 1
+  }
 });
 
-newTodo.save().then((doc) => {
-  console.log('saved todo', doc);
+var user = new User({
+  email: 'test@example.com'
+});
+
+user.save().then((doc) => {
+  console.log('User saved', doc);
 }, (e) => {
-  console.log('Unable to save todo');
+  console.log('Unable to save user', e);
 });
