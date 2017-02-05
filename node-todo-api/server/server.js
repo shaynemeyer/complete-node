@@ -26,25 +26,4 @@ app.listen(3000, () => {
   console.log('Started on port 3000');
 });
 
-// var newTodo = new Todo({
-//   text: 'Buy groceries',
-//   completed: false
-// });
-//
-// newTodo.save().then((doc) => {
-//   console.log('saved todo', doc);
-// }, (e) => {
-//   console.log('Unable to save todo');
-// });
-
-
-
-// var user = new User({
-//   email: 'test@example.com'
-// });
-//
-// user.save().then((doc) => {
-//   console.log('User saved', doc);
-// }, (e) => {
-//   console.log('Unable to save user', e);
-// });
+module.exports = { app };
