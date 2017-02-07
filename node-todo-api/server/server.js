@@ -52,7 +52,7 @@ app.get('/todos/:id', authenticate, (req, res) => {
 
   // findById
   Todo.findOne({
-    id: id,
+    _id: id,
     _creator: req.user._id
   }).then((todo) => {
     if(!todo) {
